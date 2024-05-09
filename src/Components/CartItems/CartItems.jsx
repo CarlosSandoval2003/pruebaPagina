@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./CartItems.css";
 import cross_icon from "../Assets/cart_cross_icon.png";
+import { ShopContext } from "../../Context/ShopContext";
 
 const CartItems = () => {
   const [displayedItems, setDisplayedItems] = useState([]);
+  const [discounts, setDiscounts] = useState({});
   const [shippingMethod, setShippingMethod] = useState(); 
+  const [total, setTotal] = useState(3000); // Total de compra predeterminado
   const userId = localStorage.getItem("userId");
   const [addresses, setAddresses] = useState([]);
-  const [address] = useState();
+  const [address, setAddress] = useState();
   const [shippingMethods, setShippingMethods] = useState([]);
   const [deliveryTime, setDeliveryTime] = useState("");
   const [showAddressForm, setShowAddressForm] = useState(false);
@@ -33,7 +36,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
     cvv: "",
     fecha_expiracion: ""
   });
-  const [setValidExpiryDate] = useState(false);
+  const [validExpiryDate, setValidExpiryDate] = useState(false);
   const [saldo, setSaldo] = useState("");
 
   const fetchPaymentMethods = async () => {
@@ -52,11 +55,14 @@ const [expiryDateError, setExpiryDateError] = useState("");
     }
   }, [userId]);
 
+  const handleOrder = () => {
+    // Lógica para enviar la solicitud al endpoint de checkout
+  };
 
   useEffect(() => {
     
     if (userId && userId !== "0") {
-      fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/cartItems/${userId}`)
+      fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/cartItems/${userId}`)
         .then((res) => res.json())
         .then((data) => {
           setDisplayedItems(data);
