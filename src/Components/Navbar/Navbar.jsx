@@ -25,7 +25,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchParentCategories = async () => {
       try {
-        const response = await fetch('http://localhost:4000/ParentCategoriesNav');
+        const response = await fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/ParentCategoriesNav');
         if (response.ok) {
           const data = await response.json();
           setParentCategories(data);
@@ -42,7 +42,7 @@ const Navbar = () => {
 
   const fetchSubCategories = async (categoryId) => {
     try {
-      const response = await fetch(`http://localhost:4000/SubCategories/${categoryId}`);
+      const response = await fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/SubCategories/${categoryId}`);
       if (response.ok) {
         const data = await response.json();
         return data;
