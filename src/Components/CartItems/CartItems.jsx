@@ -38,7 +38,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
 
   const fetchPaymentMethods = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/paymentMethods/${userId}`);
+      const response = await fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/paymentMethods/${userId}`);
       const data = await response.json();
       setPaymentMethods(data);
     } catch (error) {
@@ -56,22 +56,22 @@ const [expiryDateError, setExpiryDateError] = useState("");
   useEffect(() => {
     
     if (userId && userId !== "0") {
-      fetch(`http://localhost:4000/cartItems/${userId}`)
+      fetch(https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/cartItems/${userId}`)
         .then((res) => res.json())
         .then((data) => {
           setDisplayedItems(data);
         });
-        fetch(`http://localhost:4000/userAddresses/${userId}`)
+        fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/userAddresses/${userId}`)
         .then((res) => res.json())
         .then((data) => {
           setAddresses(data);
         });
-        fetch(`http://localhost:4000/shippingMethods`)
+        fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/shippingMethods`)
         .then((res) => res.json())
         .then((data) => {
           setShippingMethods(data);
         });
-        fetch(`http://localhost:4000/countries`)
+        fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/countries`)
         .then((res) => res.json())
         .then((data) => {
           setCountries(data);
@@ -96,7 +96,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
 
   const handleSaveAddress = () => {
     // Guardar la nueva dirección en la base de datos
-    fetch(`http://localhost:4000/addAddress`, {
+    fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/addAddress`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -135,7 +135,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
   const handleCheckout = async () => {
     
     try {
-      const response = await fetch('http://localhost:4000/checkout', {
+      const response = await fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -170,7 +170,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
             const selectedAddress = addressCH[0];
         console.log(userId, selectedAddress, selectedPaymentMethod, selectedShippingMethod, totalCompra);
             // Enviar los datos al backend
-            const response = await fetch('http://localhost:4000/saveOrder', {
+            const response = await fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/saveOrder', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -219,7 +219,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
     );
 
     // Update quantity on the server
-    fetch(`http://localhost:4000/cartItems/updateQuantity/${itemId}`, {
+    fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/cartItems/updateQuantity/${itemId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -238,7 +238,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
     );
 
     // Update quantity on the server
-    fetch(`http://localhost:4000/cartItems/updateQuantity/${itemId}`, {
+    fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/cartItems/updateQuantity/${itemId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -282,7 +282,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
 
   const handleRemoveItem = async (userId, itemId) => {
     try {
-      const response = await fetch('http://localhost:4000/removeCartItem', {
+      const response = await fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/removeCartItem', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -337,7 +337,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
     setPaymentCH([event.target.value]);
     console.log(paymentCH);
     // Llamar al backend para obtener el saldo asociado
-    fetch('http://localhost:4000/checkoutSaldo', {
+    fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/checkoutSaldo', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -409,7 +409,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
   
       // Realizar la consulta a la base de datos
       try {
-        const response = await fetch('http://localhost:4000/checkCreditCard', {
+        const response = await fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/checkCreditCard', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -422,7 +422,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
         if (data.exists) {
           // Insertar los datos del método de pago en la base de datos
           try {
-            const saveResponse = await fetch('http://localhost:4000/savePaymentMethod', {
+            const saveResponse = await fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/savePaymentMethod', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
