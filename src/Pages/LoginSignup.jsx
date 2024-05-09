@@ -24,7 +24,7 @@ const LoginSignup = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch("https://b0be-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/countries")
+    fetch("http://b0be-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/countries")
       .then((resp) => resp.json())
       .then((data) => {
         setCountries(data);
