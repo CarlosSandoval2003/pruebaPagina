@@ -24,7 +24,7 @@ const LoginSignup = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/countries")
+    fetch("https://b0be-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/countries")
       .then((resp) => resp.json())
       .then((data) => {
         setCountries(data);
@@ -43,7 +43,7 @@ const LoginSignup = () => {
   };
 
   const login = async () => {
-    const response = await fetch("http://localhost:4000/login", {
+    const response = await fetch("https://b0be-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -64,7 +64,7 @@ const LoginSignup = () => {
   };
 
   const signup = async () => {
-    const response = await fetch("http://localhost:4000/signup", {
+    const response = await fetch("https://b0be-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ const LoginSignup = () => {
   };
   
   const loginAfterSignup = async (userData) => {
-    const response = await fetch("http://localhost:4000/login", {
+    const response = await fetch("https://b0be-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
