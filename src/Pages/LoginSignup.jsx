@@ -3,7 +3,7 @@ import "./CSS/LoginSignup.css";
 import { AuthContext } from "../App";
 
 const LoginSignup = () => {
-  const { isLoggedIn, handleLogin, handleLogout } = useContext(AuthContext);
+  const { handleLogin } = useContext(AuthContext);
   const [state, setState] = useState("Login");
   const [loginFormData, setLoginFormData] = useState({
     correo: "",

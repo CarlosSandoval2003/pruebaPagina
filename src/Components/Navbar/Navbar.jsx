@@ -8,8 +8,7 @@ import nav_dropdown from '../Assets/nav_dropdown.png';
 import { AuthContext } from "../../App";
 
 const Navbar = () => {
-  const { isLoggedIn, handleLogin, handleLogout } = useContext(AuthContext);
-  const { getTotalCartItems } = useContext(ShopContext);
+  const { isLoggedIn, handleLogout } = useContext(AuthContext);
   const [parentCategories, setParentCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);

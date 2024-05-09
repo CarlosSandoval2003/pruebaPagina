@@ -1,16 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CartItems.css";
 import cross_icon from "../Assets/cart_cross_icon.png";
-import { ShopContext } from "../../Context/ShopContext";
 
 const CartItems = () => {
   const [displayedItems, setDisplayedItems] = useState([]);
-  const [discounts, setDiscounts] = useState({});
   const [shippingMethod, setShippingMethod] = useState(); 
-  const [total, setTotal] = useState(3000); // Total de compra predeterminado
   const userId = localStorage.getItem("userId");
   const [addresses, setAddresses] = useState([]);
-  const [address, setAddress] = useState();
+  const [address] = useState();
   const [shippingMethods, setShippingMethods] = useState([]);
   const [deliveryTime, setDeliveryTime] = useState("");
   const [showAddressForm, setShowAddressForm] = useState(false);
@@ -36,7 +33,7 @@ const [expiryDateError, setExpiryDateError] = useState("");
     cvv: "",
     fecha_expiracion: ""
   });
-  const [validExpiryDate, setValidExpiryDate] = useState(false);
+  const [setValidExpiryDate] = useState(false);
   const [saldo, setSaldo] = useState("");
 
   const fetchPaymentMethods = async () => {
@@ -55,9 +52,6 @@ const [expiryDateError, setExpiryDateError] = useState("");
     }
   }, [userId]);
 
-  const handleOrder = () => {
-    // Lógica para enviar la solicitud al endpoint de checkout
-  };
 
   useEffect(() => {
     
