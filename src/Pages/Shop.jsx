@@ -15,7 +15,7 @@ const Shop = () => {
 
   const fetchPromoCategory = async () => {
     try {
-      const response = await fetch('https://aecc-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/promo-category');
+      const response = await fetch(' https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/promo-category');
       const data = await response.json();
       if (data.ID_CATEGORIA != null) {
         setPromoCategory(data.ID_CATEGORIA);
@@ -37,12 +37,12 @@ const Shop = () => {
   }, []);
 
   const fetchInfo = () => {
-    fetch('http://192.168.1.20:4000/popularinwomen')
+    fetch(' https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/popularinwomen')
       .then((res) => res.json())
       .then((data) => setPopular(data));
 
     // Modifica la URL para obtener los productos más recientes desde Express.js
-    fetch('https://b0be-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/productos-recientes') // Cambia esta URL
+    fetch(' https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/productos-recientes') // Cambia esta URL
       .then((res) => res.json())
       .then((data) => setNewCollection(data));
   };
