@@ -13,7 +13,7 @@ const ShopCategory = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const fetchInfo = () => { 
-    fetch('http://localhost:4000/allproductsDisplay') 
+    fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/allproductsDisplay') 
       .then((res) => res.json()) 
       .then((data) => {
         setAllProducts(data);
