@@ -15,7 +15,7 @@ const Shop = () => {
 
   const fetchPromoCategory = async () => {
     try {
-      const response = await fetch('https://b0be-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/promo-category');
+      const response = await fetch('https://aecc-2800-98-1116-780-d96a-3f11-d8ba-30e0.ngrok-free.app/promo-category');
       const data = await response.json();
       if (data.ID_CATEGORIA != null) {
         setPromoCategory(data.ID_CATEGORIA);
