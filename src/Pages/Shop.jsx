@@ -17,7 +17,7 @@ const Shop = () => {
 
   const fetchPromoCategory = async () => {
     try {
-      const response = await fetch('http://192.168.1.20:4000/promo-category');
+      const response = await fetch('https://backendanalisis.onrender.com:10000/promo-category');
       const data = await response.json();
       if (data.ID_CATEGORIA != null) {
         setPromoCategory(data.ID_CATEGORIA);
@@ -39,12 +39,12 @@ const Shop = () => {
   }, []);
 
   const fetchInfo = () => {
-    fetch('http://192.168.1.20:4000/popularinwomen')
+    fetch('https://backendanalisis.onrender.com:10000/popularinwomen')
       .then((res) => res.json())
       .then((data) => setPopular(data));
 
     // Modifica la URL para obtener los productos más recientes desde Express.js
-    fetch('http://192.168.1.20:4000/productos-recientes') // Cambia esta URL
+    fetch('https://backendanalisis.onrender.com:10000/productos-recientes') // Cambia esta URL
       .then((res) => res.json())
       .then((data) => setNewCollection(data));
   };
