@@ -20,7 +20,7 @@ const ShopContextProvider = (props) => {
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     if (userId && userId !== "0") {
-      fetch(`http://localhost:4000/cartItemCount/${userId}`)
+      fetch(`https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/cartItemCount/${userId}`)
         .then((res) => res.json())
         .then((data) => setCartItemCount(data.count));
     } else {
@@ -29,7 +29,7 @@ const ShopContextProvider = (props) => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:4000/allproductsDisplay') 
+    fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/allproductsDisplay') 
           .then((res) => res.json()) 
           .then((data) => setProducts(data))
 
@@ -76,7 +76,7 @@ const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if(localStorage.getItem("auth-token"))
     {
-      fetch('http://localhost:4000/addtocart', {
+      fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/addtocart', {
       method: 'POST',
       headers: {
         Accept:'application/form-data',
@@ -95,7 +95,7 @@ const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if(localStorage.getItem("auth-token"))
     {
-      fetch('http://localhost:4000/removefromcart', {
+      fetch('https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/removefromcart', {
       method: 'POST',
       headers: {
         Accept:'application/form-data',
