@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Hero from '../Components/Hero/Hero';
+import Popular from '../Components/Popular/Popular';
+import Offers from '../Components/Offers/Offers';
 import NewCollections from '../Components/NewCollections/NewCollections';
-
+import NewsLetter from '../Components/NewsLetter/NewsLetter';
 
 const Shop = () => {
-  const [ setPopular] = useState([]);
+  const [popular, setPopular] = useState([]);
   const [newcollection, setNewCollection] = useState([]);
   const [promoCategory, setPromoCategory] = useState(null);
   const [idPadre, setidPadre] = useState(null);
@@ -15,7 +17,7 @@ const Shop = () => {
 
   const fetchPromoCategory = async () => {
     try {
-      const response = await fetch(' https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/promo-category');
+      const response = await fetch('http://10.132.182.197:4000/promo-category');
       const data = await response.json();
       if (data.ID_CATEGORIA != null) {
         setPromoCategory(data.ID_CATEGORIA);
@@ -37,12 +39,12 @@ const Shop = () => {
   }, []);
 
   const fetchInfo = () => {
-    fetch(' https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/popularinwomen')
+    fetch('http://10.132.182.197:4000/popularinwomen')
       .then((res) => res.json())
       .then((data) => setPopular(data));
 
     // Modifica la URL para obtener los productos más recientes desde Express.js
-    fetch(' https://1ab1-2800-98-1116-780-f9ba-be07-9e81-945e.ngrok-free.app/productos-recientes') // Cambia esta URL
+    fetch('http://10.132.182.197:4000/productos-recientes') 
       .then((res) => res.json())
       .then((data) => setNewCollection(data));
   };
